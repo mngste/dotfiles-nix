@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    # Shell / navigation
+    # shell / navigation
     zoxide
     starship
     eza
@@ -13,7 +13,7 @@
     lazygit
     yazi
 
-    # Term / WM / outils
+    # term / WM / tools
     alacritty
     ghostty
     fastfetch
@@ -21,7 +21,7 @@
     mako
     neovim
 
-    # Dev / ops
+    # dev / ops
     docker
   ];
 }
