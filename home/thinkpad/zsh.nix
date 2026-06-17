@@ -9,15 +9,6 @@
     historySubstringSearch.enable = true;
   
     dotDir = ".config/zsh";
-
-    # ===== Env =====
-    sessionVariables = {
-      EDITOR = "nvim";
-      GITUSER = "mngste";
-      TERM = "screen-256color";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      PATH = "$HOME/.local/bin:$PATH";
-    };
   
     # ===== History =====
     history = {
