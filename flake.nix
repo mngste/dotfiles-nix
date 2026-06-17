@@ -29,6 +29,7 @@
 
       modules = [
         ./hosts/thinkpad/configuration.nix
+        ./modules/noctalia.nix
         home-manager.nixosModules.default
 
         {
