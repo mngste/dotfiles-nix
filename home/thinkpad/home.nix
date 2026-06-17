@@ -6,6 +6,7 @@
     ./zsh.nix        # config zsh
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
     ./noctalia.nix
+    ./fonts.nix
   ];
 
   home.username = "mngt";
