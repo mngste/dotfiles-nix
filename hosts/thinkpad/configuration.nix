@@ -1,12 +1,13 @@
 { config, pkgs, inputs, ... }:
 
 {
+  ########## base system ##########
+
   imports = [
     ./hardware-configuration.nix
   ];
 
   networking.hostName = "thinkpad";
-
   time.timeZone = "Europe/Paris";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -14,34 +15,25 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
-  # principal user
+  # user
   users.users.mngt = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
     shell = pkgs.zsh;
   };
 
-  # nix flakes
+  # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # network / audio / etc.
-  networking.networkmanager.enable = true;
+  ########## network - device ##########
 
+  networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
 
   services.power-profiles-daemon.enable = true;
-  # services.tuned.enable = true;  # keep false if power‑profiles‑daemon
-
   services.upower.enable = true;
 
-  # notifications
-  services.mako.enable = true;
-
-  # idle
-  services.swayidle.enable = true;
-  
-  # polkit
-  services.polkit-gnome.enable = true;
+  ########## audio - printer ##########
 
   services.pipewire = {
     enable = true;
@@ -51,24 +43,39 @@
 
   services.printing.enable = true;
 
-  # gui wayland with niri
+  ########## desktop wayland (niri + noctalia) ##########
+
   services.displayManager.gdm = {
     enable = true;
     wayland = true;
   };
 
-  # syncthing
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true; # Open ports in the firewall for syncthing
-  };
-
   programs.niri.enable = true;
 
+  # notifications / idle / polkit
+  services.mako.enable = true;
+  services.swayidle.enable = true;
+  services.polkit-gnome.enable = true;
+
+  # portals (screen‑sharing, file picker, etc.)
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+    # if nautilus removed
+    # config.niri = {
+    #   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
+    # };
   };
+
+  ########## misc services ##########
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+  };
+
+  ########## pkgs ##########
 
   environment.systemPackages = with pkgs; [
     git
