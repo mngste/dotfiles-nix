@@ -75,6 +75,11 @@
     openDefaultPorts = true;
   };
 
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
+
   ########## pkgs ##########
 
   environment.systemPackages = with pkgs; [
