@@ -23,5 +23,9 @@
 
     # dev / ops
     docker
+
+    # others
+    obs-studio
+    firefox
   ];
 }
