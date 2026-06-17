@@ -3,6 +3,7 @@
 {
   imports = [
     ./packages.nix   # home.packages
+    ./env.nix
     ./zsh.nix        # config zsh
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
     ./noctalia.nix
