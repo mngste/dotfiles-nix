@@ -2,10 +2,10 @@
   description = "config NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -21,7 +21,7 @@
   let
     system = "x86_64-linux";
   in {
-    nixosConfigurations.lorient = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
       inherit system;
 
       # for modules (include home.nix) to see `inputs`
