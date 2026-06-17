@@ -52,16 +52,6 @@
     git
     wget
     curl
-    fastfetch
-    btop
-    neovim
-    yazi
-    starship
-
-    alacritty
-    ghostty
-    fuzzel
-    mako
   ];
 
   programs.zsh.enable = true;
