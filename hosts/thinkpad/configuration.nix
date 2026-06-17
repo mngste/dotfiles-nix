@@ -68,6 +68,7 @@
     git
     wget
     curl
+    nautilus
   ];
 
   programs.zsh.enable = true;
