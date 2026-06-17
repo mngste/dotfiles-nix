@@ -34,6 +34,15 @@
 
   services.upower.enable = true;
 
+  # notifications
+  services.mako.enable = true;
+
+  # idle
+  services.swayidle.enable = true;
+  
+  # polkit
+  services.polkit-gnome.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
