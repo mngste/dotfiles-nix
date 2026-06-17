@@ -19,7 +19,6 @@
     fastfetch
     fuzzel
     mako
-    waybar
     neovim
 
     # Dev / ops
