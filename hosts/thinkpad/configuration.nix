@@ -62,7 +62,6 @@
     ghostty
     fuzzel
     mako
-    waybar
   ];
 
   programs.zsh.enable = true;
