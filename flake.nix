@@ -8,22 +8,29 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dotfiles.url = "github:mngste/dotfiles";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, dotfiles, ... }@inputs:
   let
     system = "x86_64-linux";
   in {
     nixosConfigurations.lorient = nixpkgs.lib.nixosSystem {
       inherit system;
+
+      # for modules (include home.nix) to see `inputs`
+      specialArgs = { inherit inputs; };
+
       modules = [
-        ./hosts/lorient/configuration.nix
+        ./hosts/thinkpad/configuration.nix
         home-manager.nixosModules.default
+
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users."mngt" = import ./hosts/thinkpad/home.nix;
+            users.mngt = import ./home/thinkpad/home.nix;
           };
         }
       ];
