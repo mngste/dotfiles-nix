@@ -27,6 +27,13 @@
   # network / audio / etc.
   networking.networkmanager.enable = true;
 
+  hardware.bluetooth.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+  # services.tuned.enable = true;  # keep false if power‑profiles‑daemon
+
+  services.upower.enable = true;
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
