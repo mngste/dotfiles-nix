@@ -1,0 +1,24 @@
+input {
+    warp-mouse-to-focus
+    keyboard {
+        xkb {
+            layout "us,us"
+            variant ",intl"
+            options "grp:win_space_toggle,ctrl:nocaps"
+        }
+
+        // Enable numlock on startup, omitting this setting disables it.
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+    }
+
+    trackpoint {
+    }
+}
