@@ -9,10 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #noctalia = {
-    #  url = "github:noctalia-dev/noctalia";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -35,7 +35,7 @@
       modules = [
         ./hosts/${hostName}/configuration.nix
         ./hosts/${hostName}/desktops/${desktop}.nix
-        #./modules/noctalia.nix
+        ./modules/noctalia.nix
         home-manager.nixosModules.default
 
         {
