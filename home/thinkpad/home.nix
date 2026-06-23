@@ -4,7 +4,6 @@
   imports = [
     ../common/default.nix
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
-    ./fonts.nix
     ./nb.nix
   ];
 
