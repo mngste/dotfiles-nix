@@ -6,17 +6,7 @@
     enableZshIntegration = true;
 
     settings = {
-      format = ''
-        $username\
-        $hostname\
-        $directory\
-        $git_branch\
-        $git_state\
-        $git_status\
-        $cmd_duration\
-        $line_break\
-        $python\
-        $character'';
+      format = "$username $directory $git_branch $git_status $character";
 
       directory.style = "blue";
 
