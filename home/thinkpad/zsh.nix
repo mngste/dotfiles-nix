@@ -76,9 +76,7 @@
       gmg = "git merge";
       gpf = "git push --force";
       lg  = "lazygit";
-  
-      sc = "source $HOME/.zshrc";
-      ec = "$EDITOR $HOME/.zshrc";
+
     };
   
     # ===== Extra code (fonctions, options, fzf, bindings, etc.) =====
