@@ -1,52 +1,49 @@
 { config, pkgs, inputs, ... }:
 
-let
-  dot = inputs.dotfiles;
-in {
-
+{
   # --- ~/.config from dotfiles -----------------------------------
   # Alacritty
-  # xdg.configFile."alacritty/alacritty.toml".source = "${dot}/dot_config/alacritty/alacritty.toml";
-  # xdg.configFile."alacritty/catppuccin-mocha.toml".source = "${dot}/dot_config/alacritty/catppuccin-mocha.toml";
+  # xdg.configFile."alacritty/alacritty.toml".source = ./files/alacritty/alacritty.toml;
+  # xdg.configFile."alacritty/catppuccin-mocha.toml".source = ./files/alacritty/catppuccin-mocha.toml;
 
   # Niri
-  xdg.configFile."niri/animation.kdl".source = "${dot}/dot_config/niri/animation.kdl";
-  xdg.configFile."niri/autostart.kdl".source = "${dot}/dot_config/niri/autostart.kdl";
-  xdg.configFile."niri/backup.kdl".source = "${dot}/dot_config/niri/backup.kdl";
-  xdg.configFile."niri/bind.kdl".source = "${dot}/dot_config/niri/bind.kdl";
-  xdg.configFile."niri/config.kdl".source = "${dot}/dot_config/niri/config.kdl";
-  xdg.configFile."niri/input.kdl".source = "${dot}/dot_config/niri/input.kdl";
-  xdg.configFile."niri/layout.kdl".source = "${dot}/dot_config/niri/layout.kdl";
-  xdg.configFile."niri/misc.kdl".source = "${dot}/dot_config/niri/misc.kdl";
-  xdg.configFile."niri/noctalia.kdl".source = "${dot}/dot_config/niri/noctalia.kdl";
-  xdg.configFile."niri/output.kdl".source = "${dot}/dot_config/niri/output.kdl";
-  xdg.configFile."niri/window-rule.kdl".source = "${dot}/dot_config/niri/window-rule.kdl";
+  xdg.configFile."niri/animation.kdl".source = ./files/niri/animation.kdl;
+  xdg.configFile."niri/autostart.kdl".source = ./files/niri/autostart.kdl;
+  xdg.configFile."niri/backup.kdl".source = ./files/niri/backup.kdl;
+  xdg.configFile."niri/bind.kdl".source = ./files/niri/bind.kdl;
+  xdg.configFile."niri/config.kdl".source = ./files/niri/config.kdl;
+  xdg.configFile."niri/input.kdl".source = ./files/niri/input.kdl;
+  xdg.configFile."niri/layout.kdl".source = ./files/niri/layout.kdl;
+  xdg.configFile."niri/misc.kdl".source = ./files/niri/misc.kdl;
+  xdg.configFile."niri/noctalia.kdl".source = ./files/niri/noctalia.kdl;
+  xdg.configFile."niri/output.kdl".source = ./files/niri/output.kdl;
+  xdg.configFile."niri/window-rule.kdl".source = ./files/niri/window-rule.kdl;
 
   # Fastfetch
-  xdg.configFile."fastfetch/config.jsonc".source = "${dot}/dot_config/fastfetch/config.jsonc";
-  xdg.configFile."fastfetch/logo.txt".source = "${dot}/dot_config/fastfetch/logo.txt";
+  xdg.configFile."fastfetch/config.jsonc".source = ./files/fastfetch/config.jsonc;
+  xdg.configFile."fastfetch/logo.txt".source = ./files/fastfetch/logo.txt;
 
   # Fuzzel
-  xdg.configFile."fuzzel/fuzzel.ini".source = "${dot}/dot_config/fuzzel/fuzzel.ini";
+  xdg.configFile."fuzzel/fuzzel.ini".source = ./files/fuzzel/fuzzel.ini;
 
   # Mako
-  xdg.configFile."mako/config".source = "${dot}/dot_config/mako/config";
+  xdg.configFile."mako/config".source = ./files/mako/config;
 
   # Rofi
-  # xdg.configFile."rofi/config.rasi".source = "${dot}/dot_config/rofi/config.rasi";
-  # xdg.configFile."rofi/tokyo.rasi".source = "${dot}/dot_config/rofi/tokyo.rasi";
+  # xdg.configFile."rofi/config.rasi".source = ./files/rofi/config.rasi;
+  # xdg.configFile."rofi/tokyo.rasi".source = ./files/rofi/tokyo.rasi;
 
   # Starship
-  xdg.configFile."starship/starship.toml".source = "${dot}/dot_config/starship/starship.toml";
+  xdg.configFile."starship/starship.toml".source = ./files/starship/starship.toml;
 
   # Waybar
-  xdg.configFile."waybar/config.jsonc".source = "${dot}/dot_config/waybar/config.jsonc";
-  xdg.configFile."waybar/style.css".source = "${dot}/dot_config/waybar/style.css";
+  xdg.configFile."waybar/config.jsonc".source = ./files/waybar/config.jsonc;
+  xdg.configFile."waybar/style.css".source = ./files/waybar/style.css;
 
   # Yazi
-  xdg.configFile."yazi/theme.toml".source = "${dot}/dot_config/yazi/theme.toml";
-  xdg.configFile."yazi/yazi.toml".source = "${dot}/dot_config/yazi/yazi.toml";
+  xdg.configFile."yazi/theme.toml".source = ./files/yazi/theme.toml;
+  xdg.configFile."yazi/yazi.toml".source = ./files/yazi/yazi.toml;
 
   # Neovim
-  xdg.configFile."nvim".source = "${dot}/dot_config/nvim";
+  xdg.configFile."nvim".source = ./files/nvim;
 }
