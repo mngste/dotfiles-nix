@@ -164,6 +164,4 @@
       }
     '';
   };
-
-  programs.starship.enable = true;
 }
