@@ -14,10 +14,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dotfiles.url = "github:mngste/dotfiles";
   };
 
-  outputs = { self, nixpkgs, home-manager, dotfiles, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
   in {
