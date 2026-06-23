@@ -1,0 +1,24 @@
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/sc-%Y-%m-%d %H-%M-%S.png"
+
+environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    XDG_SESSION_TYPE "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+}
+
+debug {
+    // Allows notification actions and window activation from Noctalia.
+    honor-xdg-activation-with-invalid-serial
+}
+
+hotkey-overlay {
+   skip-at-startup
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Classic"
+  xcursor-size 24
+}
