@@ -40,7 +40,6 @@
       la = "eza -lah --icons --git";
       tree = "eza --tree --icons";
   
-      dot = "cd $DOTFILES";
       count = "find . -type f | wc -l";
       v = "nvim";
       fv = "nvim $(fzfb)";
