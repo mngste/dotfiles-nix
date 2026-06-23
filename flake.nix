@@ -9,13 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #noctalia = {
+    #  url = "github:noctalia-dev/noctalia";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
+    
+    niri.url = "github:sodiboo/niri-flake";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, niri, ... }@inputs:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -29,7 +31,7 @@
 
       modules = [
         ./hosts/${hostName}/configuration.nix
-        ./modules/noctalia.nix
+        #./modules/noctalia.nix
         home-manager.nixosModules.default
 
         {
@@ -49,7 +51,7 @@
       thinkpad = mkHost "thinkpad";
 
       # exemple pour une deuxième machine
-      # desktop = mkHost "desktop";
+      dell = mkHost "dell";
     };
   };
 }
