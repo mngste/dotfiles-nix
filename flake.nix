@@ -37,6 +37,7 @@
         ./hosts/${hostName}/desktops/${desktop}.nix
         #./modules/noctalia.nix
         home-manager.nixosModules.default
+        ]
         ++ lib.optionals (desktop == "niri") [
           niri.nixosModules.niri
         ];
