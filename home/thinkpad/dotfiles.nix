@@ -37,8 +37,8 @@
   xdg.configFile."starship/starship.toml".source = ./files/starship/starship.toml;
 
   # Waybar
-  xdg.configFile."waybar/config.jsonc".source = ./files/waybar/config.jsonc;
-  xdg.configFile."waybar/style.css".source = ./files/waybar/style.css;
+  # xdg.configFile."waybar/config.jsonc".source = ./files/waybar/config.jsonc;
+  # xdg.configFile."waybar/style.css".source = ./files/waybar/style.css;
 
   # Yazi
   xdg.configFile."yazi/theme.toml".source = ./files/yazi/theme.toml;
