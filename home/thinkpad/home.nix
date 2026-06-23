@@ -9,6 +9,7 @@
     ./noctalia.nix
     ./fonts.nix
     ./nb.nix
+    ./git.nix
   ];
 
   home.username = "mngt";
