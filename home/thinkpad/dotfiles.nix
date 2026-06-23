@@ -20,14 +20,14 @@
   xdg.configFile."niri/window-rule.kdl".source = ./files/niri/window-rule.kdl;
 
   # Fastfetch
-  xdg.configFile."fastfetch/config.jsonc".source = ./files/fastfetch/config.jsonc;
-  xdg.configFile."fastfetch/logo.txt".source = ./files/fastfetch/logo.txt;
+  # xdg.configFile."fastfetch/config.jsonc".source = ./files/fastfetch/config.jsonc;
+  # xdg.configFile."fastfetch/logo.txt".source = ./files/fastfetch/logo.txt;
 
   # Fuzzel
-  xdg.configFile."fuzzel/fuzzel.ini".source = ./files/fuzzel/fuzzel.ini;
+  # xdg.configFile."fuzzel/fuzzel.ini".source = ./files/fuzzel/fuzzel.ini;
 
   # Mako
-  xdg.configFile."mako/config".source = ./files/mako/config;
+  # xdg.configFile."mako/config".source = ./files/mako/config;
 
   # Rofi
   # xdg.configFile."rofi/config.rasi".source = ./files/rofi/config.rasi;
@@ -38,9 +38,9 @@
   # xdg.configFile."waybar/style.css".source = ./files/waybar/style.css;
 
   # Yazi
-  xdg.configFile."yazi/theme.toml".source = ./files/yazi/theme.toml;
-  xdg.configFile."yazi/yazi.toml".source = ./files/yazi/yazi.toml;
+  # xdg.configFile."yazi/theme.toml".source = ./files/yazi/theme.toml;
+  # xdg.configFile."yazi/yazi.toml".source = ./files/yazi/yazi.toml;
 
   # Neovim
-  xdg.configFile."nvim".source = ./files/nvim;
+  # xdg.configFile."nvim".source = ./files/nvim;
 }
