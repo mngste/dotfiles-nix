@@ -33,9 +33,6 @@
   # xdg.configFile."rofi/config.rasi".source = ./files/rofi/config.rasi;
   # xdg.configFile."rofi/tokyo.rasi".source = ./files/rofi/tokyo.rasi;
 
-  # Starship
-  xdg.configFile."starship/starship.toml".source = ./files/starship/starship.toml;
-
   # Waybar
   # xdg.configFile."waybar/config.jsonc".source = ./files/waybar/config.jsonc;
   # xdg.configFile."waybar/style.css".source = ./files/waybar/style.css;
