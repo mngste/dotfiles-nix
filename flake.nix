@@ -13,21 +13,22 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
-  in {
-    nixosConfigurations.thinkpad = nixpkgs.lib.nixosSystem {
+    lib = nixpkgs.lib;
+
+    mkHost = hostName: lib.nixosSystem {
       inherit system;
 
-      # for modules (include home.nix) to see `inputs`
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs hostName;
+      };
 
       modules = [
-        ./hosts/thinkpad/configuration.nix
+        ./hosts/${hostName}/configuration.nix
         ./modules/noctalia.nix
         home-manager.nixosModules.default
 
@@ -35,10 +36,20 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            users.mngt = import ./home/thinkpad/home.nix;
+            extraSpecialArgs = {
+              inherit inputs hostName;
+            };
+            users.mngt = import ./home/${hostName}/home.nix;
           };
         }
       ];
+    };
+  in {
+    nixosConfigurations = {
+      thinkpad = mkHost "thinkpad";
+
+      # exemple pour une deuxième machine
+      # desktop = mkHost "desktop";
     };
   };
 }
