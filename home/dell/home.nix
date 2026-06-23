@@ -3,7 +3,7 @@
 {
   imports = [
     ../common/default.nix
-    # ./dotfiles.nix   # xdg.configFile for niri
+    ./dotfiles.nix   # xdg.configFile for niri
   ];
 
   services.mako.enable = true;
