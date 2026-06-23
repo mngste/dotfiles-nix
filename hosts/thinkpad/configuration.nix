@@ -15,6 +15,9 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
+  # boot - kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   # user
   users.users.mngt = {
     isNormalUser = true;
