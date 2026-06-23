@@ -2,6 +2,7 @@
 
 {
   services.displayManager.gdm.enable = true;
+  services.displayManager.defaultSession = "niri";
 
   programs.niri = {
     enable = true;
@@ -14,4 +15,5 @@
   };
 
   programs.dconf.enable = true;
+  security.polkit.enable = true;
 }
