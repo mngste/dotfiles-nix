@@ -2,14 +2,15 @@
 
 {
   imports = [
-    ./packages.nix   # home.packages
-    ./env.nix
-    ./zsh.nix        # config zsh
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
-    ./noctalia.nix
+    ./env.nix
     ./fonts.nix
-    ./nb.nix
     ./git.nix
+    ./nb.nix
+    ./noctalia.nix
+    ./packages.nix   # home.packages
+    ./starship.nix
+    ./zsh.nix        # config zsh
   ];
 
   home.username = "mngt";
