@@ -6,7 +6,6 @@
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
     ./fonts.nix
     ./nb.nix
-    ./noctalia.nix
   ];
 
   home.username = "mngt";
