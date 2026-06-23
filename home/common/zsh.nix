@@ -4,11 +4,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     historySubstringSearch.enable = true;
   
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
   
     # ===== History =====
     history = {
@@ -79,7 +79,7 @@
     };
   
     # ===== Extra code (fonctions, options, fzf, bindings, etc.) =====
-    initExtra = ''
+    initContent = ''
       # Options de shell
       setopt AUTOCD
       setopt NOBEEP
@@ -87,10 +87,13 @@
   
       # ---- Fonction yazi (y) ----
       y() {
-        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+        local tmp cwd
+        tmp="$(mktemp -t yazi-cwd.XXXXXX)"
         command yazi "$@" --cwd-file="$tmp"
-        IFS= read -r -d '' cwd < "$tmp"
-        [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+        cwd="$(command cat -- "$tmp" 2>/dev/null)"
+        if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && [ -d "$cwd" ]; then
+          builtin cd -- "$cwd"
+        fi
         command rm -f -- "$tmp"
       }
   
@@ -127,9 +130,8 @@
   
       # Ctrl+F : file picker sans fichiers cachés
       _fzf_file_no_hidden() {
-        local cmd result
-        cmd="${FZF_DEFAULT_COMMAND/--hidden /}"
-        result=$(eval "${cmd:-find . -type f}" | fzf --preview "$_FZF_PREVIEW_CMD") \
+        local result
+        result="$(fd --type f --hidden --strip-cwd-prefix | fzf --preview "$_FZF_PREVIEW_CMD")" \
           && LBUFFER+="$result"
         zle reset-prompt
       }
