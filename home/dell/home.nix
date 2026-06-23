@@ -3,10 +3,16 @@
 {
   imports = [
     ../common/default.nix
-    ./dotfiles.nix   # xdg.configFile for niri
+    #./dotfiles.nix   # xdg.configFile for niri
+    inputs.noctalia.homeModules.default
   ];
 
   services.mako.enable = true;
+
+  programs.noctalia = {
+    enable = true;
+    systemd.enable = true;
+  };
 
   #programs.waybar = {
   #  enable = true;
