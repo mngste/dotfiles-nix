@@ -18,10 +18,14 @@
   # boot - kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # virt
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   # user
   users.users.mngt = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "libvirtd" ];
     shell = pkgs.zsh;
   };
 
@@ -90,6 +94,10 @@
     wget
     curl
     nautilus
+    virt-manager
+    qemu
+    libvirt
+    OVMF
   ];
 
   programs.zsh.enable = true;
