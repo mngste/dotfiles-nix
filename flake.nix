@@ -14,7 +14,10 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
     
-    niri.url = "github:sodiboo/niri-flake";
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, niri, ... }@inputs:
@@ -22,17 +25,21 @@
     system = "x86_64-linux";
     lib = nixpkgs.lib;
 
-    mkHost = hostName: lib.nixosSystem {
+    mkHost = { hostName, desktop }: lib.nixosSystem {
       inherit system;
 
       specialArgs = {
-        inherit inputs hostName;
+        inherit inputs hostName desktop;
       };
 
       modules = [
         ./hosts/${hostName}/configuration.nix
+        ./hosts/${hostName}/desktops/${desktop}.nix
         #./modules/noctalia.nix
         home-manager.nixosModules.default
+        ++ lib.optionals (desktop == "niri") [
+          niri.nixosModules.niri
+        ];
 
         {
           home-manager = {
@@ -48,10 +55,25 @@
     };
   in {
     nixosConfigurations = {
-      thinkpad = mkHost "thinkpad";
+      dell-kde = mkHost {
+        hostName = "dell";
+        desktop = "kde";
+      };
 
-      # exemple pour une deuxième machine
-      dell = mkHost "dell";
+      dell-niri = mkHost {
+        hostName = "dell";
+        desktop = "niri";
+      };
+
+      thinkpad-kde = mkHost {
+        hostName = "dell";
+        desktop = "kde";
+      };
+
+      thinkpad-niri = mkHost {
+        hostName = "dell";
+        desktop = "niri";
+      };
     };
   };
 }
