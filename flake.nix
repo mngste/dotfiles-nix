@@ -37,10 +37,6 @@
         ./hosts/${hostName}/desktops/${desktop}.nix
         #./modules/noctalia.nix
         home-manager.nixosModules.default
-        ]
-        ++ lib.optionals (desktop == "niri") [
-          niri.nixosModules.niri
-        ];
 
         {
           home-manager = {
@@ -52,6 +48,8 @@
             users.mngt = import ./home/${hostName}/home.nix;
           };
         }
+      ] ++ lib.optionals (desktop == "niri") [
+          niri.nixosModules.niri
       ];
     };
   in {
