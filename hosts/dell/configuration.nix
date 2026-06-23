@@ -5,6 +5,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./desktops/niri.nix
   ];
 
   networking.hostName = "dell";
@@ -63,28 +64,6 @@
   };
 
   services.printing.enable = true;
-
-  ########## desktop wayland (niri + noctalia) ##########
-
-  services.displayManager.gdm = {
-    enable = true;
-  };
-
-  programs.niri.enable = true;
-
-  # notifications / idle / polkit
-  security.polkit.enable = true;
-
-  # portals (screen‑sharing, file picker, etc.)
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-    # if nautilus removed
-    # config.niri = {
-    #   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-    # };
-  };
 
   ########## misc services ##########
 
