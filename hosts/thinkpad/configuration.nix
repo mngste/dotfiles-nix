@@ -18,10 +18,6 @@
   # boot - kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # virt
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
   # user
   users.users.mngt = {
     isNormalUser = true;
@@ -31,6 +27,27 @@
 
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  ########## virtualisation ##########
+
+  programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf.enable = true;
+      ovmf.packages = [
+        (pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd
+      ];
+    };
+  };
 
   ########## network - device ##########
 
@@ -95,9 +112,13 @@
     curl
     nautilus
     virt-manager
+    virt-viewer
     qemu
     libvirt
     OVMF
+    swtpm
+    spice
+    spice-gtk
   ];
 
   programs.zsh.enable = true;
