@@ -1,12 +1,13 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, desktop, ... }:
 
 {
   ########## base system ##########
 
   imports = [
     ./hardware-configuration.nix
-    ./desktops/niri.nix
-  ];
+  ]
+  ++ lib.optionals (desktop == "niri") [ ./desktops/niri.nix ]
+  ++ lib.optionals (desktop == "kde") [ ./desktops/kde.nix ];
 
   networking.hostName = "thinkpad";
   time.timeZone = "Europe/Paris";
