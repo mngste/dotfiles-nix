@@ -43,7 +43,7 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             extraSpecialArgs = {
-              inherit inputs hostName;
+              inherit inputs hostName desktop;
             };
             users.mngt = import ./home/${hostName}/home.nix;
           };
@@ -59,23 +59,13 @@
     };
   in {
     nixosConfigurations = {
-      dell-kde = mkHost {
-        hostName = "dell";
-        desktop = "kde";
-      };
-
-      dell-niri = mkHost {
-        hostName = "dell";
-        desktop = "niri";
-      };
-
       thinkpad-kde = mkHost {
-        hostName = "dell";
+        hostName = "thinkpad";
         desktop = "kde";
       };
 
       thinkpad-niri = mkHost {
-        hostName = "dell";
+        hostName = "thinkpad";
         desktop = "niri";
       };
     };
