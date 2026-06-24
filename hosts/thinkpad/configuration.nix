@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, desktop, ... }:
+{ config, pkgs, lib, inputs, desktop, ... }:
 
 {
   ########## base system ##########
