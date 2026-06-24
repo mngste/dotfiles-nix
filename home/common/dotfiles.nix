@@ -10,4 +10,10 @@
   # xdg.configFile."rofi".source = ./files/rofi;
   # xdg.configFile."waybar".source = ./files/waybar;
   xdg.configFile."yazi".source = ./files/yazi;
+
+  home.file.".nbrc".text = ''
+    #!/usr/bin/env bash
+    export NB_COLOR_THEME="${NB_COLOR_THEME:-forest}"
+    export NB_DIR="$HOME/Documents"
+  '';
 }
