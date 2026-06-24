@@ -12,6 +12,15 @@
     systemd.enable = desktop == "niri";
   };
 
+  services.mako.enable = desktop == "niri";
+
+  #programs.waybar = {
+  #  enable = true;
+  #  systemd.enable = true;
+  #};
+
+  programs.fuzzel.enable = desktop == "niri";
+
   home.username = "mngt";
   home.homeDirectory = "/home/mngt";
   home.stateVersion = "26.05";
