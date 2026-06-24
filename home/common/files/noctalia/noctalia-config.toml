@@ -1,0 +1,66 @@
+[bar.default]
+background_opacity = 0.51999998837709427
+margin_ends = 170.0
+radius = 8
+shadow = false
+thickness = 30
+
+[idle]
+behavior_order = [ "lock", "screen-off", "suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660
+
+    [idle.behavior.suspend]
+    action = "suspend"
+    enabled = false
+    lock_before_suspend = true
+    timeout = 900
+
+[shell]
+font_family = "JetBrainsMono Nerd Font Propo"
+polkit_agent = true
+settings_show_advanced = true
+telemetry_enabled = false
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+[theme]
+builtin = "Tokyo-Night"
+community_palette = "Catppuccin Lavender"
+
+    [theme.templates]
+    builtin_ids = [ "ghostty", "niri" ]
+    community_ids = [ "pywalfox", "fuzzel", "yazi" ]
+
+[wallpaper]
+directory = "/home/mngt/.local/share/chezmoi/assets"
+
+    [wallpaper.default]
+    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+
+    [wallpaper.last]
+    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+
+    [wallpaper.monitors.DP-4]
+    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+
+    [wallpaper.monitors.DP-5]
+    path = "/home/mngt/.local/share/chezmoi/assets/wallhaven-9oovg8.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/mngt/.local/share/chezmoi/assets/pixel_tokyonigth_theme6.png"
+
+[weather]
+address = "Lorient"
+
+[widget.network]
+show_label = false
