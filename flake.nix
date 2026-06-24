@@ -47,15 +47,9 @@
             users.mngt = import ./home/${hostName}/home.nix;
           };
         }
+      ] ++ lib.optionals (desktop == "niri") [
+          niri.nixosModules.niri
       ];
-#++ lib.optionals (desktop == "niri") [
-#          niri.nixosModules.niri
-#          ({ inputs, pkgs, ... }: {
-#            environment.systemPackages = [
-#              inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-#            ];
-#          })
-#      ];
     };
   in {
     nixosConfigurations = {
