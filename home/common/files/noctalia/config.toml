@@ -42,22 +42,22 @@ community_palette = "Catppuccin Lavender"
     community_ids = [ "pywalfox", "fuzzel", "yazi" ]
 
 [wallpaper]
-directory = "/dotfiles-nix/assets"
+directory = "/home/mngt/dotfiles-nix/assets"
 
     [wallpaper.default]
-    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+    path = "/home/mngt/dotfiles-nix/assets/planet_tokyonight.jpg"
 
     [wallpaper.last]
-    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+    path = "/home/mngt/dotfiles-nix/assets/planet_tokyonight.jpg"
 
     [wallpaper.monitors.DP-4]
-    path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
+    path = "/home/mngt/dotfiles-nix/assets/planet_tokyonight.jpg"
 
     [wallpaper.monitors.DP-5]
-    path = "/home/mngt/.local/share/chezmoi/assets/wallhaven-9oovg8.jpg"
+    path = "/home/mngt/dotfiles-nix/assets/wallhaven-9oovg8.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/mngt/.local/share/chezmoi/assets/pixel_tokyonigth_theme6.png"
+    path = "/home/mngt/dotfiles-nix/assets/pixel_tokyonigth_theme6.png"
 
 [weather]
 address = "Lorient"
