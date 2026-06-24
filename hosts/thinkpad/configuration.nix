@@ -5,6 +5,7 @@
 
   imports = [
     ./hardware-configuration.nix
+    ./desktops/niri.nix
   ];
 
   networking.hostName = "thinkpad";
@@ -39,15 +40,11 @@
       package = pkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
-      ovmf.enable = true;
-      ovmf.packages = [
-        (pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd
-      ];
     };
   };
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   ########## network - device ##########
 
@@ -66,31 +63,6 @@
   };
 
   services.printing.enable = true;
-
-  ########## desktop wayland (niri + noctalia) ##########
-
-  services.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-
-  programs.niri.enable = true;
-
-  # notifications / idle / polkit
-  services.mako.enable = true;
-  services.swayidle.enable = true;
-  services.polkit-gnome.enable = true;
-
-  # portals (screen‑sharing, file picker, etc.)
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-
-    # if nautilus removed
-    # config.niri = {
-    #   "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
-    # };
-  };
 
   ########## misc services ##########
 
