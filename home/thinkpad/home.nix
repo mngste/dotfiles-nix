@@ -1,11 +1,16 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, desktop, ... }:
 
 {
   imports = [
     ../common/default.nix
     ./dotfiles.nix   # xdg.configFile for alacritty/niri/...
     ./nb.nix
-  ];
+  ] ++ (if desktop == "niri" then [ inputs.noctalia.homeModules.default ] else []);
+
+  programs.noctalia = {
+    enable = desktop == "niri";
+    systemd.enable = desktop == "niri";
+  };
 
   home.username = "mngt";
   home.homeDirectory = "/home/mngt";
