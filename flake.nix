@@ -35,7 +35,6 @@
       modules = [
         ./hosts/${hostName}/configuration.nix
         ./hosts/${hostName}/desktops/${desktop}.nix
-        ./modules/noctalia.nix
         home-manager.nixosModules.default
 
         {
@@ -48,14 +47,15 @@
             users.mngt = import ./home/${hostName}/home.nix;
           };
         }
-      ] ++ lib.optionals (desktop == "niri") [
-          niri.nixosModules.niri
-          ({ inputs, pkgs, ... }: {
-            environment.systemPackages = [
-              inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-            ];
-          })
       ];
+#++ lib.optionals (desktop == "niri") [
+#          niri.nixosModules.niri
+#          ({ inputs, pkgs, ... }: {
+#            environment.systemPackages = [
+#              inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+#            ];
+#          })
+#      ];
     };
   in {
     nixosConfigurations = {
