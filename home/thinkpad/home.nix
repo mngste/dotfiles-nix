@@ -19,7 +19,7 @@
   #  systemd.enable = true;
   #};
 
-  programs.fuzzel.enable = desktop == "niri";
+  programs.fuzzel.enable = true;
 
   home.username = "mngt";
   home.homeDirectory = "/home/mngt";
