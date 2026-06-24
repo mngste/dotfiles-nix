@@ -42,7 +42,7 @@ community_palette = "Catppuccin Lavender"
     community_ids = [ "pywalfox", "fuzzel", "yazi" ]
 
 [wallpaper]
-directory = "/home/mngt/.local/share/chezmoi/assets"
+directory = "/dotfiles-nix/assets"
 
     [wallpaper.default]
     path = "/home/mngt/.local/share/chezmoi/assets/planet_tokyonight.jpg"
