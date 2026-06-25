@@ -92,6 +92,7 @@
     swtpm
     spice
     spice-gtk
+    nano
   ];
 
   programs.zsh.enable = true;
