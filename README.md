@@ -5,7 +5,6 @@ Flake-based NixOS config for my ThinkPad, using:
 - **NixOS** for system configuration.
 - **Home Manager** (as a NixOS module) for the user environment (`mngt`).
 - **Niri** Wayland compositor + **Noctalia** shell.
-- External dotfiles from <https://github.com/mngste/dotfiles>.
 
 ---
 
@@ -14,16 +13,28 @@ Flake-based NixOS config for my ThinkPad, using:
 ```text
 .
 ├── flake.nix
-├── hosts/thinkpad/configuration.nix   # System (NixOS)
-├── modules/noctalia.nix               # Noctalia package from flake input
-└── home/thinkpad
-    ├── home.nix                       # Home Manager entrypoint
-    ├── packages.nix                   # User apps
-    ├── zsh.nix                        # Shell config
-    ├── dotfiles.nix                   # ~/.config from external dotfiles repo
-    ├── noctalia.nix                   # Noctalia HM module
-    ├── fonts.nix                      # JetBrains Nerd Font + Bibata cursor
-    └── nb.nix                         # nb CLI installation
+├── hosts/thinkpad   
+    ├── configuration.nix              # System (NixOS)
+    └── desktops                       # niri - kde
+        ├── kde.nix
+        └── niri.nix
+└── home
+    ├── assets                         # wallpapers
+    ├── thinkpad
+        ├── files/niri
+        ├── dotfiles.nix
+        ├── home.nix                   # Home Manager entrypoint
+        ├── nb.nix
+    └── common                         # common files
+        ├── files                      # configs
+        ├── default.nix
+        ├── dotfiles.nix
+        ├── env.nix
+        ├── git.nix       
+        ├── gui.nix                    # JetBrains Nerd Font + Bibata cursor
+        ├── packages.nix               # User apps
+        ├── starship.nix
+        └── zsh.nix                    # Shell config                        
 ```
 
 ---
@@ -57,7 +68,10 @@ Flake-based NixOS config for my ThinkPad, using:
    From the root of the repo:
 
    ```bash
-   sudo nixos-rebuild switch --flake .#thinkpad
+   sudo nixos-rebuild switch --flake .#thinkpad-niri
+   ```
+   ```bash
+   sudo nixos-rebuild switch --flake .#thinkpad-kde
    ```
 
    This applies both:
@@ -72,14 +86,21 @@ Flake-based NixOS config for my ThinkPad, using:
 - **Rebuild with the same flake lock:**
 
   ```bash
-  sudo nixos-rebuild switch --flake .#thinkpad
+  sudo nixos-rebuild switch --flake .#thinkpad-niri
+  ```
+  ```bash
+  sudo nixos-rebuild switch --flake .#thinkpad-kde
   ```
 
 - **Update inputs (`nixpkgs`, `home-manager`, `dotfiles`, `noctalia`) and then rebuild:**
 
   ```bash
   nix flake update
-  sudo nixos-rebuild switch --flake .#thinkpad
+  sudo nixos-rebuild switch --flake .#thinkpad-niri
+  ```
+  ```bash
+  nix flake update
+  sudo nixos-rebuild switch --flake .#thinkpad-kde
   ```
 
 ---
@@ -88,7 +109,6 @@ Flake-based NixOS config for my ThinkPad, using:
 
 - Add/remove apps: edit `home/thinkpad/packages.nix`.
 - Change shell behaviour: edit `home/thinkpad/zsh.nix`.
-- Modify Niri / Noctalia / other apps: edit your external `dotfiles` repo; `dotfiles.nix` will sync them into `~/.config`.
 
 For more background:
 
