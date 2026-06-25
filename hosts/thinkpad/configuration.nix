@@ -30,6 +30,27 @@
   # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  ########## systemd ##########
+
+  # delete old config
+  systemd.services.nix-gc = {
+    description = "Nix garbage collection";
+    serviceConfig.Type = "oneshot";
+    script = ''
+      ${pkgs.nix}/bin/nix-collect-garbage --delete-older-than 15d
+    '';
+  };
+
+  systemd.timers.nix-gc = {
+    description = "Weekly Nix garbage collection";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "weekly";
+      Persistent = true;
+      Unit = "nix-gc.service";
+    };
+  };
+
   ########## virtualisation ##########
 
   programs.virt-manager.enable = true;
