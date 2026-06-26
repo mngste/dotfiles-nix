@@ -114,6 +114,7 @@
     spice
     spice-gtk
     nano
+    nodejs
   ];
 
   programs.zsh.enable = true;
