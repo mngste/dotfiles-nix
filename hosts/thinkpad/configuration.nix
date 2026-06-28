@@ -115,7 +115,6 @@
     spice-gtk
     nano
     nodejs
-    libsecret
   ];
 
   programs.zsh.enable = true;
