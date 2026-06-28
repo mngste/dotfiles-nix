@@ -27,5 +27,6 @@
     # others
     obs-studio
     firefox
+    proton-pass-cli
   ];
 }
