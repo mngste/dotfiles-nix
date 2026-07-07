@@ -226,5 +226,5 @@ binds {
 
     // noctalia plugins
     Mod+V hotkey-overlay-title="Run plugin: clipboard" { spawn-sh "noctalia msg panel-toggle clipboard"; }
-    Mod+Alt+L hotkey-overlay-title="Lock screen" { spawn-sh "noctalia msg screen-lock"; }
+    Mod+Alt+L hotkey-overlay-title="Lock screen" { spawn-sh "noctalia msg session lock"; }
 }
