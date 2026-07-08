@@ -24,6 +24,7 @@
       extensions.packages =
         with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
           proton-pass
+          proton-vpn
           ghostery
         ];
     };
