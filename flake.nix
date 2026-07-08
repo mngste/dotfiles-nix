@@ -41,6 +41,7 @@
         ./hosts/${hostName}/configuration.nix
         ./hosts/${hostName}/desktops/${desktop}.nix
         home-manager.nixosModules.default
+        ./modules/security/sudo.nix
 
         {
           home-manager = {
