@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./chromium.nix
     ./dotfiles.nix
     ./env.nix
     ./firefox.nix
