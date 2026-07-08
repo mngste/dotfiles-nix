@@ -119,6 +119,12 @@
 
   ########## pkgs ##########
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "proton-pass-cli"
+    ];
+
   environment.systemPackages = with pkgs; [
     git
     tree
@@ -136,6 +142,7 @@
     nano
     nodejs
     gcc
+    proton-pass-cli
   ];
 
   programs.zsh.enable = true;
