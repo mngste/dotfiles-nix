@@ -27,6 +27,7 @@
     syncthing
 
     # others
+    keepassxc
     obs-studio
     gimp
     libsecret
