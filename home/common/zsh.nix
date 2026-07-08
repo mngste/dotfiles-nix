@@ -28,7 +28,8 @@
       # system
       today = "date +%Y-%m-%d";
       md = "mkdir";
-      update = "sudo nix flake update && sudo nixos-rebuild switch --flake .#thinkpad-niri";
+      updaten = "sudo nix flake update && sudo nixos-rebuild switch --flake .#thinkpad-niri";
+      updatek = "sudo nix flake update && sudo nixos-rebuild switch --flake .#thinkpad-kde";
   
       "ssh-eval" = "eval \"$(ssh-agent -s)\"";
       spc = "ssh-eval && pass-cli login";
