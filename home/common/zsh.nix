@@ -25,8 +25,10 @@
   
     # ===== Aliases =====
     shellAliases = {
+      # system
       today = "date +%Y-%m-%d";
       md = "mkdir";
+      update = "sudo nix flake update && sudo nixos-rebuild switch --flake .#thinkpad-niri";
   
       "ssh-eval" = "eval \"$(ssh-agent -s)\"";
       spc = "ssh-eval && pass-cli login";
