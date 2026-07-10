@@ -117,6 +117,8 @@
     openFirewall = true;
   };
 
+  services.trezord.enable = true;
+
   ########## pkgs ##########
 
   nixpkgs.config.allowUnfree = true;
