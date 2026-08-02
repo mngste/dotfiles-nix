@@ -31,5 +31,6 @@
     gimp
     libsecret
     chromium
+    trezor-suite
   ];
 }
