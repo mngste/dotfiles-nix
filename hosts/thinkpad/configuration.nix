@@ -144,6 +144,8 @@
 
   services.trezord.enable = true;
 
+  services.udisks2.enable = true;
+
   ########## pkgs ##########
 
   nixpkgs.config.allowUnfree = true;
